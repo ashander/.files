@@ -1,0 +1,1 @@
+/Users/jaime/smt/bin/smt-complete.sh

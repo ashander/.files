@@ -1,0 +1,1 @@
+/Users/jaime/dotfiles/.bash_completion.d
