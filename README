@@ -1,0 +1,7 @@
+Configuration files
+
+To install:
+source INSTALL.sh
+
+Note that this script may delete any existing config files that share a name
+with files in this repo

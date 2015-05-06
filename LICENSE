@@ -1,4 +1,10 @@
-Copyright (c) 2015, 
+These config files, in particular .emacs, .vimrc, and .bashrc, contain chunks
+gleaned from various blogs, wikis, help sites, etc.
+
+No claim is made to these.
+
+All other portions
+Copyright (c) Jaime Ashander 2015,
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
