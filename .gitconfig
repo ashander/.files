@@ -18,6 +18,7 @@
     untracked = cyan
 [core]
 	excludesfile = $HOME/.gitignore_global
+	autocrlf = input
 [push]
 	default = matching
 [alias]
