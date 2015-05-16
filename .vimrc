@@ -21,7 +21,8 @@ Plugin 'klen/python-mode'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-rmarkdown'
-
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 
 syntax enable
 filetype plugin indent on
@@ -39,12 +40,25 @@ endif
 
 " show status
 set laststatus=2
+
 " highlight trailing ws
 match ErrorMsg '\s\+$'
 
-" powerline setup
-"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-"set laststatus=2
+"fugitive config
+set statusline+=%{fugitive#statusline()}
+autocmd QuickFixCmdPost *grep* cwindow
+
+" Syntastic
+let g:syntastic_ignore_files = ['\py$']
+let g:pymode_lint = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 
 " Python-mode
 " Activate rope
