@@ -16,10 +16,13 @@ Plugin 'gmarik/vundle'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-scripts/vim-R-plugin'
 Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
@@ -43,6 +46,12 @@ set laststatus=2
 
 " highlight trailing ws
 match ErrorMsg '\s\+$'
+
+" R config
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
+let vimrplugin_applescript=0
+let vimrplugin_vsplit=1
 
 "fugitive config
 set statusline+=%{fugitive#statusline()}
