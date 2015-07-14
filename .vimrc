@@ -14,6 +14,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'vim-pandoc/vim-pandoc'
@@ -23,6 +24,7 @@ Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'jalvesaq/R-Vim-runtime'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 
 call vundle#end()            " required
@@ -49,6 +51,9 @@ endif
 " show status
 set laststatus=2
 
+" tab completion
+set wildmode=longest,list,full
+
 " highlight trailing ws
 match ErrorMsg '\s\+$'
 
@@ -57,17 +62,21 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 let vimrplugin_applescript=0
 let vimrplugin_vsplit=1
+let maplocalleader = ","
 
 "fugitive config
 set statusline+=%{fugitive#statusline()}
 autocmd QuickFixCmdPost *grep* cwindow
 
 " Syntastic
-let g:syntastic_ignore_files = ['\py$']
+let g:syntastic_ignore_files = ['\.py$']
+let g:syntastic_ignore_files = ['\.tex$']
 let g:pymode_lint = 0
+let g:syntastic_tex_checkers=['']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 "
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -106,7 +115,7 @@ let g:pymode_virtualenv = 1
 
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_breakpoint_bind = '<Leader>b'
 
 " syntax highlighting
 let g:pymode_syntax = 1
@@ -126,15 +135,33 @@ let g:vim_markdown_folding_disabled=1
 
 
 " key mappings
-:nnoremap ; $
 map <Down> <c-w>w<c-e><c-w>w
 map <Up> <c-w>w<c-y><c-w>w
 ":inoremap <Leader>z <c-w>w<c-y><c-w>w
 ":nnoremap <Leader>z <c-w>w<c-y><c-w>w
 
+"""""""""""""""""""""ergo
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>"
+let mapleader = ","
+
+nnoremap <Space> zz
+
 " paragraph formatting
 vmap Q gq
 nmap Q gqap
 
-" remap leader for ergo
-let mapleader = ","
+" text stuff
+set textwidth=80
+
+" latex
+let g:LatexBox_Folding = 1
+let g:LatexBox_quickfix = 1
+let g:LatexBox_fold_automatic= 2
+"if s:extfname ==? "tex"
+"	let g:LatexBox_split_type="new"
+"endif
+
+
