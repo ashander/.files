@@ -1,18 +1,14 @@
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-" backspace
-set bs=2
-
 " Vundle load
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
@@ -26,10 +22,19 @@ Plugin 'vim-scripts/vim-R-plugin'
 Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'jalvesaq/R-Vim-runtime'
 
-syntax enable
+
+call vundle#end()            " required
 filetype plugin indent on
+syntax enable
 syntax on
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+" backspace
+set bs=2
+
 
 " background stuff
 set background=dark
