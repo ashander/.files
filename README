@@ -5,4 +5,7 @@ source INSTALL.sh
 
 Note that this script may delete any existing config files that share a name
 with files in this repo
+
+To use vimrc, first
+
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
