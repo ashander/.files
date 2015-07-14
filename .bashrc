@@ -39,9 +39,6 @@ alias hibernateon='sudo pmset -a hibernatemode 5'
 alias hibernateoff='sudo pmset -a hibernatemode 0'
 alias hibernatedefault='sudo pmset -a hibernatemode 7'
 
-# knitr
-alias knit='Rscript ~/bin/knit.R'
-
 # bash comp
 source $HOME/.bash_completion.d/smt-complete.sh
 source $HOME/.bash_completion.d/git-completion.bash
@@ -67,4 +64,12 @@ alias v.lssitepackages='lssitepackages'
 # for psipi
 export PATH=~/.local/bin:$PATH
 
+# r devtools aliases
+alias dv.install='Rscript -e "devtools::install()"'
+alias dv.test='Rscript -e "devtools::test()"'
+alias dv.check='Rscript -e "devtools::check()"'
+alias dv.doccheck='Rscript -e "devtools::check_doc()"'
+alias dv.build='Rscript -e "devtools::build()"'
+
 source ~/.profile
+
