@@ -164,4 +164,20 @@ let g:LatexBox_fold_automatic= 2
 "	let g:LatexBox_split_type="new"
 "endif
 
+" wc in tex from Konrad Rudolph
+function! WC()
+	let filename = expand("%")
+	let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
+	let result = system(cmd)
+	echo result . " words"
+endfunction
 
+command! WC call WC()
+
+function! WCr() range
+	let cmd = 'echo '.shellescape(join(getline(a:firstline, a:lastline), "\n ")).'| detex | wc -w | tr -d [:space:]'
+	let result = system(cmd)
+	echo result . " words"
+endfunction
+
+com! -range=% -nargs=0 RC :<line1>,<line2>call WCr()
