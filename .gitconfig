@@ -30,7 +30,9 @@
 	d = diff --color-words
 	lg = log --oneline --graph --decorate --all
 	co = checkout
-[merge] ## from emacsforosx
-  tool = ediff
+[merge]
+  tool = fugitive
 [mergetool "ediff"]
   cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[mergetool "fugitive"]
+  cmd = vim -f -c "Gdiff" "$MERGED"
