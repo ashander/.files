@@ -164,7 +164,7 @@ let g:LatexBox_fold_automatic= 2
 "	let g:LatexBox_split_type="new"
 "endif
 
-" wc in tex from Konrad Rudolph
+" wc in tex from Konrad Rudolph to count whole document
 function! WC()
 	let filename = expand("%")
 	let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
@@ -174,6 +174,7 @@ endfunction
 
 command! WC call WC()
 
+" call this on a region with RC
 function! WCr() range
 	let cmd = 'echo '.shellescape(join(getline(a:firstline, a:lastline), "\n ")).'| detex | wc -w | tr -d [:space:]'
 	let result = system(cmd)
@@ -181,3 +182,8 @@ function! WCr() range
 endfunction
 
 com! -range=% -nargs=0 RC :<line1>,<line2>call WCr()
+
+" syc
+"
+let g:LatexBox_latexmk_options
+			\ = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
