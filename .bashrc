@@ -61,7 +61,7 @@ alias v.cdsitepackages='cdsitepackages'
 alias v.cd='cdvirtualenv'
 alias v.lssitepackages='lssitepackages'
 
-# for psipi
+# for pipsi
 export PATH=~/.local/bin:$PATH
 
 # r devtools aliases
