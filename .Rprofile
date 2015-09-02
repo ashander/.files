@@ -9,7 +9,7 @@ author <- paste0(
 )
 
 options("device" = "quartz",
-        "repos" = c(CRAN = "http://cran.r-project.org/"), #use main cran repo
+        "repos" = c(CRAN = "https://cran.rstudio.com/"), #use rstudio cran repo
         showWarnCalls=T, showErrorCalls=T,
         menu.graphics =FALSE,
         browserNLdisabled=TRUE,
@@ -17,21 +17,15 @@ options("device" = "quartz",
 	devtools.desc.author =  author,
 	devtools.desc.license = "GPL (>= 2)"
 	)
-#options(repos=c("http://cran.cnr.Berkeley.edu","http://cran.stat.ucla.edu"))
 
 options("width"=160,
         "digits.secs"=3)
 
 if (interactive()) {
      print("devtools, lintr loaded in interactive mode")
-     require(devtools)
      require(lintr)
+     require(devtools)
 }
-options(rstudio.markdownToHTML =
-  function(inputFile, outputFile) {
-    system(paste("pandoc", shQuote(inputFile), "-o", shQuote(outputFile)))
-  }
-)
 
 setHook('plot.new', function(...)
   par(mar=c(3,4,2,1), mgp=c(2,.7,0), tck=-.01, las=1, bty="l")
