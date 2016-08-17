@@ -1,8 +1,8 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 source .apikeys.sh
 #shell vars
-PS1='\w$(__git_ps1 " (%s)")$ '
-PS2=' $ '
+#PS1='\w$(__git_ps1 " (%s)")$ '
+#PS2=' $ '
 HISTCONTROL=ignoreboth
 export CLICOLOR=2
 export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -27,13 +27,9 @@ alias eg='egrep --color'
 alias th='t -d $HOME/MSC/todo.cfg'
 alias thl='th ls'
 
-# WINE aliases
-alias openbugs='wine $HOME/.wine/drive_c/Program\ Files/OpenBUGS/OpenBUGS312/OpenBUGS.exe'
-
 alias gt='growltimer'
 
 alias wget='curl -O'
-alias aquamacs='open /Applications/Aquamacs.app'
 
 alias hibernateon='sudo pmset -a hibernatemode 5'
 alias hibernateoff='sudo pmset -a hibernatemode 0'
@@ -46,7 +42,7 @@ source $HOME/.git-prompt.sh
 
 ## virtualenv stuff
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+source $HOME/.local/bin/virtualenvwrapper_lazy.sh
 
 alias v='workon'
 alias v.deactivate='deactivate'
@@ -61,7 +57,7 @@ alias v.cdsitepackages='cdsitepackages'
 alias v.cd='cdvirtualenv'
 alias v.lssitepackages='lssitepackages'
 
-# for pipsi
+# for pipsi, pip install --user etc
 export PATH=~/.local/bin:$PATH
 
 # r devtools aliases
@@ -70,6 +66,3 @@ alias dv.test='Rscript -e "devtools::test()"'
 alias dv.check='Rscript -e "devtools::check()"'
 alias dv.doccheck='Rscript -e "devtools::check_doc()"'
 alias dv.build='Rscript -e "devtools::build()"'
-
-source ~/.profile
-
